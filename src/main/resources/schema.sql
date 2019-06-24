@@ -157,9 +157,9 @@ INSERT INTO EMPLOYEES
 (1   , 'Steven'   , 'King'    , 'SKING'    , '515.123.4567'    , '1987-06-17', 'AD_PRES'   , 24000    , 6            , NULL      , NULL          ),
 (2   , 'Neena'    , 'Kochhar' , 'NKochhar' , '515.123.4568'    , '1989-09-21', 'AD_VP'     , 17000.100, 6            , 1         , NULL          ),
 (3   , 'Lex'      , 'De Haaan', 'LDEHAAAN' , '515.123.4569'    , '1993-01-13', 'AD_VP'     , 17000.100, 6            , 1         , NULL          ),
-(4   , 'Alexander', 'Hulond'  , 'AHULOND'  , '515.123.4561'    , '1990-01-03', 'IT_PROG'   , 9000.102 , 4            , 3         , NULL          ),
-(5   , 'Bruce'    , 'Ernst'   , 'BERNST'   , '515.123.4562'    , '1991-05-21', 'IT_PROG'   , 6000.103 , 4            , 4         , NULL          ),
-(6   , 'Diana'    , 'Lorentz' , 'DLORENTZ' , '515.123.4563'    , '1999-02-07', 'IT_PROG'   , 4200.103 , 4            , 4         , NULL          ),
+(4   , 'Alexander', 'Hulond'  , 'AHULOND'  , '515.123.4561'    , '1990-01-03', 'IT_PROG'   , 999      , 4            , 3         , NULL          ),
+(5   , 'Bruce'    , 'Ernst'   , 'BERNST'   , '515.123.4562'    , '1991-05-21', 'IT_PROG'   , 999      , 4            , 4         , NULL          ),
+(6   , 'Diana'    , 'Lorentz' , 'DLORENTZ' , '515.123.4563'    , '1999-02-07', 'IT_PROG'   , 999      , 4            , 4         , NULL          ),
 (7   , 'Kevin'    , 'Mourgos' , 'KMOURGOS' , '515.123.4564'    , '1999-11-16', 'ST_MAN'    , 5800.100 , 3            , 1         , NULL          ),
 (8   , 'Trenna'   , 'Rajs'    , 'TRAJS'    , '515.123.4565'    , '1995-10-17', 'ST_CLERK'  , 3500.124 , 3            , 7         , NULL          ),
 (9   , 'Curtis'   , 'Davies'  , 'CDAVIES'  , '515.123.4566'    , '1997-01-29', 'ST_CLERK'  , 3100.124 , 3            , 7         , NULL          ),
@@ -170,8 +170,8 @@ INSERT INTO EMPLOYEES
 (14  , 'Jonathon' , 'Taylor'  , 'JTAYLOR'  , '011.515.123.4573', '1998-03-24', 'SA_REP'    , 860.149  , 5            , 12        , 0.2           ),
 (15  , 'Kimberely', 'Grant'   , 'KGRANT'   , '011.515.123.4574', '1999-05-24', 'SA_REP'    , 7000     , NULL         , 12        , 0.15          ),
 (16  , 'Jennifer' , 'Whalen'  , 'JWHALEN'  , '515.123.4580'    , '1987-09-17', 'AD_ASST'   , 4400     , 1            , 2         , NULL          ),
-(17  , 'Michael'  , 'Harstein', 'MHARSTEIN', '515.123.4581'    , '1996-02-17', 'MK_MAN'    , 13000.100, 2            , 1         , NULL          ),
-(18  , 'Pat'      , 'Fay'     , 'PFAY'     , '515.123.4582'    , '1997-08-17', 'MK_REP'    , 6000.201 , 2            , 17        , NULL          ),
+(17  , 'Michael'  , 'Harstein', 'MHARSTEIN', '515.123.4581'    , '1996-02-17', 'MK_MAN'    , 1499     , 2            , 1         , NULL          ),
+(18  , 'Pat'      , 'Fay'     , 'PFAY'     , '515.123.4582'    , '1997-08-17', 'MK_REP'    , 1499     , 2            , 17        , NULL          ),
 (19  , 'Shelly'   , 'Higgins' , 'SHIGGINS' , '515.123.4583'    , '1994-06-07', 'AC_MGR'    , 12000    , 7            , 2         , NULL          ),
 (20  , 'William'  , 'Gietz'   , 'WGIETZ'   , '515.123.4584'    , '1994-06-07', 'AC_ACCOUNT', 8300     , 7            , 19        , NULL          );
 
@@ -198,5 +198,3 @@ UPDATE DEPARTMENTS SET MANAGER_ID = 4 WHERE ID = 4;
 UPDATE DEPARTMENTS SET MANAGER_ID = 12 WHERE ID = 5;
 UPDATE DEPARTMENTS SET MANAGER_ID = 1 WHERE ID = 6;
 UPDATE DEPARTMENTS SET MANAGER_ID = 19 WHERE ID = 7;
-
-
