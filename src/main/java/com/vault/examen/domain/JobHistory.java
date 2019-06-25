@@ -24,14 +24,6 @@ public class JobHistory {
     public JobHistory() {
     }
 
-    public Long getEmployeId() {
-        return this.getId().getEmployeeId();
-    }
-
-    public void setEmployeId(Long employeeId) {
-        this.getId().setEmployeeId(employeeId);
-    }
-
     public LocalDate getStartDate() {
         return this.getId().getStartDate();
     }

@@ -12,7 +12,7 @@ import com.vault.examen.repository.EmployeeRepositoryCustom;
 public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom {
 
     private final EntityManager entityManager;
-    private static final String QUERY_EMPLOYE = "FROM Employe emp WHERE 0 = 0";
+    private static final String QUERY_EMPLOYE = "FROM Employee emp WHERE 0 = 0";
 
     public EmployeeRepositoryCustomImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
