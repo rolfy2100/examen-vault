@@ -1,30 +1,30 @@
 package com.vault.examen.repository.impl;
 
-import com.vault.examen.domain.Employe;
-import com.vault.examen.vo.EmployeFilter;
+import com.vault.examen.domain.Employee;
+import com.vault.examen.vo.EmployeeFilter;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
-import com.vault.examen.repository.EmployeRepositoryCustom;
+import com.vault.examen.repository.EmployeeRepositoryCustom;
 
 @Repository
-public class EmployeRepositoryCustomImpl implements EmployeRepositoryCustom {
+public class EmployeeRepositoryCustomImpl implements EmployeeRepositoryCustom {
 
     private final EntityManager entityManager;
     private static final String QUERY_EMPLOYE = "FROM Employe emp WHERE 0 = 0";
 
-    public EmployeRepositoryCustomImpl(EntityManager entityManager) {
+    public EmployeeRepositoryCustomImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
-    public List<Employe> buscarPorLastNameAndJobAndManager(EmployeFilter employFilter) {
-        String query = QUERY_EMPLOYE.concat(this.agregarFiltroPorJob(employFilter.getJobId()))
-                .concat(this.agregarFiltroPorLastName(employFilter.getLastName()))
-                .concat(this.agregarFiltroPorManager(employFilter.getManagerId()));
-        TypedQuery<Employe> typedQuery = entityManager.createQuery(query, Employe.class);
-        this.agregarPaginado(employFilter.getLimit(), employFilter.getOffset(), typedQuery);
+    public List<Employee> buscarPorLastNameAndJobAndManager(EmployeeFilter employeeFilter) {
+        String query = QUERY_EMPLOYE.concat(this.agregarFiltroPorJob(employeeFilter.getJobId()))
+                .concat(this.agregarFiltroPorLastName(employeeFilter.getLastName()))
+                .concat(this.agregarFiltroPorManager(employeeFilter.getManagerId()));
+        TypedQuery<Employee> typedQuery = entityManager.createQuery(query, Employee.class);
+        this.agregarPaginado(employeeFilter.getLimit(), employeeFilter.getOffset(), typedQuery);
         return typedQuery.getResultList();
     }
 
@@ -40,7 +40,7 @@ public class EmployeRepositoryCustomImpl implements EmployeRepositoryCustom {
         return managerId != null ? " and emp.manager.id = " + managerId : "";
     }
 
-    private void agregarPaginado(Integer limit, Integer offset, TypedQuery<Employe> typedQuery) {
+    private void agregarPaginado(Integer limit, Integer offset, TypedQuery<Employee> typedQuery) {
         if (offset != null && limit != null) {
             typedQuery.setFirstResult(offset).setMaxResults(limit);
         }

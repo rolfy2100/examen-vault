@@ -25,11 +25,11 @@ public class JobHistory {
     }
 
     public Long getEmployeId() {
-        return this.getId().getEmployeId();
+        return this.getId().getEmployeeId();
     }
 
     public void setEmployeId(Long employeeId) {
-        this.getId().setEmployeId(employeeId);
+        this.getId().setEmployeeId(employeeId);
     }
 
     public LocalDate getStartDate() {
@@ -67,19 +67,19 @@ public class JobHistory {
     @Embeddable
     public static class PrimaryKey implements Serializable {
 
-        private Long employeId;
+        private Long employeeId;
         private LocalDate startDate;
         private LocalDate endDate;
 
         public PrimaryKey() {
         }
 
-        public Long getEmployeId() {
-            return employeId;
+        public Long getEmployeeId() {
+            return employeeId;
         }
 
-        public void setEmployeId(Long employeeId) {
-            this.employeId = employeeId;
+        public void setEmployeeId(Long employeeId) {
+            this.employeeId = employeeId;
         }
 
         public LocalDate getStartDate() {

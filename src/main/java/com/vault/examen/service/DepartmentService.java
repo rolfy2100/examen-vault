@@ -1,10 +1,9 @@
 package com.vault.examen.service;
 
 import com.vault.examen.domain.Department;
-import com.vault.examen.domain.Employe;
+import com.vault.examen.domain.Employee;
 import com.vault.examen.domain.Location;
 import com.vault.examen.repository.DepartmentRepository;
-import com.vault.examen.repository.EmployeRepository;
 import com.vault.examen.repository.LocationRepository;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,6 +12,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import com.vault.examen.repository.EmployeeRepository;
 
 @Service
 @Transactional
@@ -24,12 +24,12 @@ public class DepartmentService {
     private final static int SEGUNDA_MITAD_DEL_MES = 15;
 
     private final DepartmentRepository departmentRepository;
-    private final EmployeRepository employeRepository;
+    private final EmployeeRepository employeeRepository;
     private final LocationRepository locationRepository;
 
-    public DepartmentService(DepartmentRepository departmentRepository, EmployeRepository employeRepository, LocationRepository locationRepository) {
+    public DepartmentService(DepartmentRepository departmentRepository, EmployeeRepository employeeRepository, LocationRepository locationRepository) {
         this.departmentRepository = departmentRepository;
-        this.employeRepository = employeRepository;
+        this.employeeRepository = employeeRepository;
         this.locationRepository = locationRepository;
     }
 
@@ -44,7 +44,7 @@ public class DepartmentService {
             department.setLocation(location);
             return departmentRepository.save(department);
         } else {
-            throw new IllegalArgumentException("No es posible guardar el departamento, ya que el promedio de salario es superior al permitido para esta parte del mes");
+            throw new IllegalArgumentException("No es posible guardar el departamento, ya que el promedio de salarios para ese location es superior al permitido para esta parte del mes");
         }
     }
 
@@ -57,11 +57,11 @@ public class DepartmentService {
     }
 
     private BigDecimal calcularPromedioSalarioPorLocation(Long locationId) {
-        List<Employe> empleadosDeLocation = employeRepository.findByDepartmentLocationId(locationId);
+        List<Employee> empleadosDeLocation = employeeRepository.findByDepartmentLocationId(locationId);
         if (empleadosDeLocation.isEmpty()) {
             return BigDecimal.ZERO;
         } else {
-            return empleadosDeLocation.stream().map(employe -> employe.getSalary())
+            return empleadosDeLocation.stream().map(employee -> employee.getSalary())
                     .reduce(BigDecimal.ZERO, (salary, salary2) -> salary.add(salary2))
                     .divide(new BigDecimal(empleadosDeLocation.size()), RoundingMode.FLOOR);
         }

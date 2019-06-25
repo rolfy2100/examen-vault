@@ -20,7 +20,7 @@ public class Department {
     @ManyToOne
     @JoinColumn(name = "manager_id")
     @JsonBackReference
-    private Employe manager;
+    private Employee manager;
     @ManyToOne
     private Location location;
 
@@ -40,11 +40,11 @@ public class Department {
         this.name = name;
     }
 
-    public Employe getManager() {
+    public Employee getManager() {
         return manager;
     }
 
-    public void setManager(Employe manager) {
+    public void setManager(Employee manager) {
         this.manager = manager;
     }
 

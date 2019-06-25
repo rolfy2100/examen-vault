@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employees")
-public class Employe {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,13 +31,13 @@ public class Employe {
     private BigDecimal commissionPct;
     @ManyToOne
     @JoinColumn(name = "MANAGER_ID")
-    private Employe manager;
+    private Employee manager;
     @ManyToOne
     private Department department;
-    @OneToMany(mappedBy = "id.employeId")
+    @OneToMany(mappedBy = "id.employeeId")
     private List<JobHistory> jobHistory;
 
-    public Employe() {
+    public Employee() {
     }
 
     public Long getId() {
@@ -112,11 +112,11 @@ public class Employe {
         this.commissionPct = commissionPct;
     }
 
-    public Employe getManager() {
+    public Employee getManager() {
         return manager;
     }
 
-    public void setManager(Employe manager) {
+    public void setManager(Employee manager) {
         this.manager = manager;
     }
 

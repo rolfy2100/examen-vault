@@ -1,10 +1,10 @@
 package com.vault.examen.vo;
 
-import com.vault.examen.domain.Employe;
+import com.vault.examen.domain.Employee;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class EmployeVO {
+public class EmployeeVO {
 
     private Long id;
     private String firstName;
@@ -14,12 +14,12 @@ public class EmployeVO {
     private LocalDate hireDate;
     private BigDecimal salary;
     private BigDecimal comissionPct;
-    private EmployeVO manager;
+    private EmployeeVO manager;
 
-    public EmployeVO() {
+    public EmployeeVO() {
     }
 
-    public EmployeVO(Employe employeEntity) {
+    public EmployeeVO(Employee employeEntity) {
         this.id = employeEntity.getId();
         this.firstName = employeEntity.getFirstName();
         this.lastName = employeEntity.getLastName();
@@ -94,11 +94,11 @@ public class EmployeVO {
         this.comissionPct = comissionPct;
     }
 
-    public EmployeVO getManager() {
+    public EmployeeVO getManager() {
         return manager;
     }
 
-    public void setManager(EmployeVO manager) {
+    public void setManager(EmployeeVO manager) {
         this.manager = manager;
     }
 }

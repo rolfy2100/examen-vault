@@ -1,6 +1,6 @@
 package com.vault.examen.vo;
 
-public class EmployeFilter {
+public class EmployeeFilter {
 
     private String jobId;
     private Long managerId;
